@@ -48,11 +48,29 @@ If we want to start from a clean database, it is necessary to run migrations usi
 dotnet ef database update
 ```
 
-The existing database can also be used. 
-The MDF file of the used database is in the database folder. It is only necessary to copy it to the appropriate location of the MS SQL Server Express instance.
-It's usually at this location. And then attach it.
+Insert some dummy data for testing
 ```sh
-C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA
+USE [CloudSalesDB]
+GO
+
+INSERT INTO [dbo].[Customers]
+           ([CustomerIdentifier]
+           ,[Name]
+           ,[Email]
+           ,[Type])
+     VALUES
+           ('CN000000001214' ,'Acme Corporation', 'office@acmecorp.com', 1),
+		   ('CN000000001228' ,'Umbrella Corporation', 'office@umbrella.net', 1)
+GO
+
+INSERT INTO [dbo].[Accounts]
+           ([CustomerId]
+           ,[Name])
+     VALUES
+           (1,'Business Account'),
+		   (1,'Business Plus Account'),
+		   (2,'Business Account')
+GO
 ```
 
 Since the API key needs to be protected, within your project directory, use the following command to enable secret storage:
