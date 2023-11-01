@@ -37,7 +37,8 @@ git clone https://github.com/m-kovacina/CloudSalesApi.git
 ```
 
 Set up database.
-Adjust connection string within appsettings.json file:
+
+Adjust connection string within appsettings.json file, for example:
 ```sh
 "CloudSalesConnection": "Server=.\\SQLEXPRESS;Database=CloudSalesDB;TrustServerCertificate=True;Trusted_Connection=True;"
 ```
