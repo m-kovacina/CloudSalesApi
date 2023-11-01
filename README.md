@@ -37,6 +37,11 @@ git clone https://github.com/m-kovacina/CloudSalesApi.git
 ```
 
 Set up database.
+Adjust connection string within appsettings.json file:
+```sh
+"CloudSalesConnection": "Server=.\\SQLEXPRESS;Database=CloudSalesDB;TrustServerCertificate=True;Trusted_Connection=True;"
+```
+
 If we want to start from a clean database, it is necessary to run migrations using the following command.
 ```sh
 dotnet ef database update
